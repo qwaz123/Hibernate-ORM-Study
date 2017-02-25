@@ -20,6 +20,14 @@ NAME         |
 CAPITAL      |
 
 
-<script src="https://gist.github.com/readStudy/c33198daff00b1f56e752c03d7b4f400.js"></script>
+
+```java
+List<User> users = em.createQuery("select u from User u").getResultList();
+// select * from USER  ---------- (1)
+for (User user : users) {
+  System.out.println(user.getCountry().getName());
+  // select * from COUNTRY where ID = ? ----------- (2)
+}
+```
 The code use one SQL select to load USER entity, then, 
 it iterates the user to get Country, it need an additional SELECT.
